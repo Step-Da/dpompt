@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru-Ru">
+  <head>
+     <meta charset="utf-8">
+     <title>УЦ ДПО МПТ</title>
+     <link rel="shortcut icon" type="image/x-icon" href="http://localhost/dpompt/image/favicon.ico">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <style> @import url(http://localhost/dpompt/css/siteStyle.css); </style>
+     <script src="http://localhost/dpompt/JS/jQuery.js"></script>
+  </head>
+  <body>
+   <div class="wrapper">
+       <div class="header">
+         <div class="data-header">
+           <table>
+              <tr>
+                <td class="heading-logo">
+                  <img src="http://localhost/dpompt/image/logo.png" alt="" class="logo rounded float-left img-thumbnail">
+                </td>
+                <td class="heading-text">
+                  <h1>Учебный центр</h1>
+                  <h2>Дополнительного профессионального образования</h2>
+                </td>
+                <td class="header-function">
+                  <!--<a href="#modal-login-window" data-toggle="modal" class="heder-link">Войти в систему</a>-->
+                  <button id="button-open-modal-login-window" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-login-window">Войти в систему</button>
+                  <button id="button-exit-profil" type="button" class="btn btn-danger">Выйти из системы</button>    
+                </td>
+              </tr>
+           </table>
+         </div>
+       </div>
+       <!--Модальное окно авторизации-->
+       <div class="modal fade" id="modal-login-window">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title">Авторизация</h4>
+               </div>
+               <form method="POST" id="login-form">
+                   <div class="modal-body">
+                       <div id='block-login' class="form-group">
+                          <label for="">Логин</label> 
+                          <input id="email-login-field-aut" type="email" class="form-control" aria-describedby="emailHelp" required name="email" placeholder="Введите свою почту">
+                       </div>
+                       <div id="block-password" class="from-group">
+                          <label for="">Пароль</label>
+                          <input type="password" id="password-field-aut" class="form-control" required name="password" placeholder="Введите свой паспорт">
+                       </div>   
+                   </div>
+                   <div class="modal-footer">
+                     <button type="button" id="button-open-registration" class="btn btn-warning" data-toggle="modal" data-target="#modal-registration-window">Регистрация</button>
+                     <button type="button" id="button-clouse" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                     <input  type="button" id="button-authorization" class="btn btn-success" value="Авторизироваться">
+                   </div>
+               </form>
+             </div>
+           </div>
+         </div>
+         <!--Модальное окно регстрации по блокам-->
+         <div id="modal-registration-window" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridModalLabel">Регстрация новго профиля</h4>
+              </div>
+              <div class="modal-body">
+                <form method="POST" id="registration-form">
+                  <div class="container-fluid bd-example-row">
+                    <div class="row">
+                      <div class="row">
+                        <div class="col-sm-9">
+                          <label for="" class="from-group">Общая информация</label>
+                          <div class="row">
+                            <div class="col-xs-8 col-sm-6">
+                              <div class="form-group valid">
+                                <label for="">Фамилия</label>
+                                <input id="surname-field" name="surname" type="text" maxlength="50" class="form-control" required placeholder="Введите свою фамилию">
+                              </div>
+                              <div  class="form-group valid">
+                                <label for="">Имя</label>
+                                <input id="name-field" name="name" type="text" maxlength="50" class="form-control" required placeholder="Введите свое имя">
+                              </div>
+                              <div  class="form-group has-success">
+                                <label for="">Отчество</label>
+                                <input id="patronymic-field" name="patronymic" maxlength="50" class="form-control" placeholder="Введите свою фамилию">
+                              </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-6">
+                              <div class="form-group valid">
+                                <label for="">Дата рождения</label>
+                                <input id="dateBht-filed" name="dateBht" type="date" class="form-control" required placeholder="Выберите дату рождения">
+                              </div>
+                              <div class="form-group valid">
+                                <label for="">Номер телефона</label>
+                                <input id="phoneNumber-field" name="phone" type="text" class="form-control" placeholder="Введите свой номер телефона">
+                              </div>
+                              <div class="form-group valid">
+                                <label for="">Электронная почта</label>
+                                <input id="email-field-reg" name="email-reg" type="email" class="form-control" aria-describedby="emailHelp" required placeholder="Введите адоес почты">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-9">
+                          <div class="form-group valid">
+                            <label for="">Безопастность профиля</label>
+                            <input id="password-field-reg" name="password-reg" type="password" maxlength="20" class="form-control" required placeholder="Введите новый пароль">
+                          </div>
+                        </div>
+                        </div>
+                      </div>          
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-9">
+                        <label for="">Паспортные данные</label>
+                        <div class="from-group">
+                          <div class="row">
+                            <div class="col-xs-8 col-sm-6">
+                              <div class="form-group valid">
+                                <label for="">Серия</label>
+                                <input id="series-document-field-my" name="seriesDocument-my" type="text" maxlength="4" class="form-control maskSeries" required placeholder="Введите серию паспорта">
+                              </div>
+                              <div class="form-group valid">
+                                <label for="">Дата выдачи</label>
+                                <input id="date-issue-my" name="date-issue-my" type="date" class="form-control" required placeholder="Дата выдочиы">
+                              </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-6">
+                              <div class="form-group valid">
+                                <label for="">Номер</label>
+                                <input id="number-document-field-my" name="numberDocument-my" type="text" maxlength="6" class="form-control maskNumber" required placeholder="Введите номер паспорта">
+                              </div>
+                              <div class="form-group valid">
+                                <label for="">УФМС</label>
+                                <input id="issue-address-field-my" name="issueAddres-my" type="text" maxlength="50" required class="form-control" placeholder="Введите адрес УФМС">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="representatives-document-block" class="row">
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <label for="">Паспортные данные предстовителей</label>
+                          <div class="row">
+                            <div class="col-xs-8 col-sm-6">
+                              <div class="form-group">
+                                <label for="">Серия</label>
+                                <input id="series-document-field-rep" name="seriesDocument-rep" type="text" maxlength="4" class="form-control maskSeries" required placeholder="Введите серию паспорта">
+                              </div>
+                              <div class="form-group">
+                                <label for="">Дата выдачи</label>
+                                <input id="date-issue-rep" name="dateIssue-rep" type="date" class="form-control" required placeholder="Дата выдочиы">
+                              </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="">Номер</label>
+                                <input id="number-document-field-rep" name="numberDocument-rep" type="text" maxlength="6" class="form-control maskNumber" required placeholder="Введите номер паспорта">
+                              </div>
+                              <div class="form-group">
+                                <label for="">УФМС</label>
+                                <input id="issue-address-field-rep" name="issueAddress-rep" type="text" maxlength="50" class="form-control" required placeholder="Введите адрес УФМС">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-9">
+                        <label for="">Информация об образовании</label>
+                        <div>
+                          <div class="row">
+                            <div class="col-xs-8 col-sm-6">
+                              <div class="from-group valid">
+                                <label for="">Тип образования</label>
+                                <select id="type-education-field" name="typeEducation" class="form-control">
+                                  <option>Среднее</option>
+                                  <option>Вышие</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-6">
+                              <div class="from-group valid">
+                                <label for="">Номер документа</label>
+                                <input id="number-education-document" name="NumnerEducation" class="form-control" required placeholder="Введите номер документа">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="from-group">
+                        <div class="col-xs-5 col-sm-9">
+                          <div class="from-control">
+                          </div>
+                      </div>
+                      <div class="col-xs-8 col-sm-9">
+                          <div class="form-group valid">
+                            <label for="" class="form-goup indentation-label">Наименование образовательного учереждения</label>
+                            <input id="establishment-name" name="establishmentName" type="text" maxlength="20" class="form-control" required placeholder="Введите название образовательного учереждения">
+                          </div>
+                        </div>
+                    </div>
+                </div>      
+              </div>
+            </form>
+              <div class="modal-footer">
+                <button id="button-clouse-registration" type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+                <button id="button-create-listener" type="submit" class="btn btn-success">Создать</button>
+                <input type="text" id="mirrorUsers">
+              </div>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('#phoneNumber-field').mask("+7(999) 999-99-99", {placeholder: " "});
+            $('.maskSeries').mask('9 9 9 9');
+            $('.maskNumber').mask('9 9 9 - 9 9 9');
+            $('#representatives-document-block').hide();
+            $('#button-exit-profil').hide();
+            $('#mirrorUsers').hide();
+          });
+
+          $('#dateBht-filed').change(function(){
+            var birthDate = new Date(this.value);
+            var nowDate = new Date, age = nowDate.getFullYear() - birthDate.getFullYear();
+            if (age < 18) { $('#representatives-document-block').fadeIn('slow');}
+            else ($('#representatives-document-block').fadeOut('slow'));
+          })
+          
+          $('#button-authorization').click(function(){
+            if ((document.getElementById('email-login-field-aut').value != '') && (document.getElementById('password-field-aut').value != '')){
+                $.ajax({
+                url:'JS/ajax/ajaxAuthorization.php',
+                method: 'POST',
+                data:{
+                  inputLogin:document.getElementById('email-login-field-aut').value,
+                  inputPassword:document.getElementById('password-field-aut').value
+                }
+              }).done(function(data){
+                document.getElementById('mirrorUsers').value = data;
+                document.getElementById('user-label').innerHTML = 'Здраствуйте,' + data;
+                $('#block-login').removeClass('has-error');
+                $('#block-password').removeClass('has-error');
+                console.log(data);
+              });
+
+              setTimeout(function(){
+                $('#button-clouse').trigger('click');
+              });
+
+              $(function(){ 
+                $('#button-exit-profil').show(); 
+                $('#button-open-modal-login-window').hide();
+              });
+            }
+            else{
+              alert('Поля не заполнены');
+              $('#block-login').addClass('has-error');
+              $('#block-password').addClass('has-error');
+            }            
+          });
+
+          $('#button-exit-profil').click(function(){
+            $('#button-exit-profil').hide(); 
+            $('#button-open-modal-login-window').show();
+            document.getElementById('user-label').innerHTML = 'Авторизуйтесь на сайте, чтобы записаться на курс.';  
+          })
+
+          $('#button-create-listener').click(function(){
+
+
+            var formValid = true;
+            $('input').each(function(){
+              var formGroup = $(this).parents('.form-group' + '.valid');
+              if (this.checkValidity()){
+                formGroup.addClass('has-success').removeClass('has-error');
+              }
+              else{
+                formGroup.addClass('has-error').removeClass('has-success');
+                formValid = false;
+              }
+            });
+            if(document.getElementById('email-field-reg').value != '' && document.getElementById('password-field-reg').value !='') {formValid = true;}
+
+            if(formValid){
+               $.ajax({
+                url:'JS/ajax/ajaxInsert.php',
+                method: 'POST',
+                data:{
+                //Таблица слушателей
+                surname:document.getElementById('surname-field').value,
+                name:document.getElementById('name-field').value,
+                patronymic:document.getElementById('patronymic-field').value,
+                dateBirth:document.getElementById('dateBht-filed').value,
+                email:document.getElementById('email-field-reg').value,
+                phone:document.getElementById('phoneNumber-field').value,
+                password:document.getElementById('password-field-reg').value,
+                //Таблица документы
+                seriesListner:document.getElementById('series-document-field-my').value.replace(/\s/g, ''),
+                numberListner:document.getElementById('number-document-field-my').value.replace(/\s/g, ''),
+                dateIssueListner:document.getElementById('date-issue-my').value,
+                addressIssueListner:document.getElementById('issue-address-field-my').value, 
+                //Образование слушателя 
+                typeEducation:document.getElementById('type-education-field').value,
+                numberEducationDocument:document.getElementById('number-education-document').value,
+                nameEstablishment:document.getElementById('establishment-name').value,
+                //Дополнительные документы
+                seriesRepresent:document.getElementById('series-document-field-rep').value,
+                numberRepresent:document.getElementById('number-document-field-rep').value,
+                dateIssueRepresent:document.getElementById('date-issue-rep').value,
+                addressIssueRepresent:document.getElementById('issue-address-field-rep').value
+              }
+             }).done(function(data){
+              console.log(data);
+             });
+
+             setTimeout(function(){
+               $('#button-clouse-registration').trigger('click');
+             });
+
+             $.ajax({
+               url: 'mail/letterRegistration.php',
+               method: 'POST',
+               data: {                     
+                 recipient:document.getElementById('email-field-reg').value,
+                 recipientSurname:document.getElementById('surname-field').value,
+                 recipientName:document.getElementById('name-field').value
+               }
+             }).done(function(data){
+               console.log(data);
+             });
+
+            }
+            else{
+              alert('Не все поля заполнены');
+            }           
+          });
+        </script>

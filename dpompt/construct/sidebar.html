@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+    <div class="sidebar">
+        <div class="data-sidebar">
+            <div class="container-fluid">
+                <div class="row">
+                  <div class="col-xs-20">
+                    <nav class="navbar navbar-inverse smSideBar">
+                        <div class="container-fluid">
+                          <div class="navbar-header">
+                             <a class="navbar-brand" href="#">Каталог курсов</a>
+                          </div>
+                          <ul class="nav navbar-nav">
+                            <li><a id="programmer-link" href="#">IT-Курсы</a></li>
+                            <li><a id="exams-link" href="#">Подготовка к ЕГЭ</a></li>
+                            <li><a id="general-link" href="#">Прочие образовательные курсы</a></li>
+                          </ul>
+                        </div>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var opening = 750;
+    var closing = 1300;
+    var viwe = true;
+
+    $('#button-map').click(function(){ viwe = true });
+    $('#button-table').click(function(){ viwe = false });
+
+    $('#programmer-link').click(function(){
+        if(viwe){
+            $('#table-map-catalog-exams').fadeOut(closing);
+            $('#table-map-catalog-general').fadeOut(closing);
+            setTimeout(function(){
+                $('#table-map-catalog-programm').fadeIn(opening);
+            },2000);
+        }
+        else{
+            $('#table-catalog-exams').fadeOut(closing);
+            $('#table-catalog-general').fadeOut(closing);
+            setTimeout(function(){
+                $('#table-catalog-programmer').fadeIn(opening);
+            },2000);
+        }
+    });
+    
+    $('#exams-link').click(function(){
+        if(viwe){
+            $('#table-map-catalog-general').fadeOut(closing);
+            $('#table-map-catalog-programm').fadeOut(closing);
+            setTimeout(function(){
+                $('#table-map-catalog-exams').fadeIn(opening);
+            }, 2000);
+        }
+        else{
+            $('#table-catalog-programmer').fadeOut(closing);
+            $('#table-catalog-general').fadeOut(closing);
+            setTimeout(function(){
+                $('#table-catalog-exams').fadeIn(opening);
+            }, 2000);
+        }
+    });
+
+    $('#general-link').click(function(){
+        if(viwe){
+            $('#table-map-catalog-programm').fadeOut(closing);
+            $('#table-map-catalog-exams').fadeOut(closing);
+            setTimeout(function(){
+                $('#table-map-catalog-general').fadeIn(opening);
+            }, 2000);
+        }
+        else{
+            $('#table-catalog-programmer').fadeOut(closing);
+            $('#table-catalog-exams').fadeOut(closing);
+            setTimeout(function(){
+                $('#table-catalog-general').fadeIn(opening);
+            }, 2000);
+        }
+    });
+</script>
